@@ -13,6 +13,6 @@ public class Test {
     @GetMapping
     public ResponseEntity<String> get(){
 
-        return new ResponseEntity<>("ceva", HttpStatus.OK);
+        return new ResponseEntity<>("hello world", HttpStatus.OK);
     }
 }
