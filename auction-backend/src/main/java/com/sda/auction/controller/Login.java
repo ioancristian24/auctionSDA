@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/register")
-public class Registration {
+@RequestMapping("/api/login")
+public class Login {
+
 
     @Autowired
     private UserService userService;
@@ -21,13 +22,13 @@ public class Registration {
     private UserDtoValidator userDtoValidator;
 
     @GetMapping
-    public ResponseEntity<String> get(){
+    public ResponseEntity<String> get() {
 
         return new ResponseEntity<>("hello world", HttpStatus.OK);
     }
 
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity<UserDto> post(@Valid @RequestBody UserDto userDto){
+    public ResponseEntity<UserDto> post(@Valid @RequestBody UserDto userDto) {
 
         userDtoValidator.validate(userDto);
 
