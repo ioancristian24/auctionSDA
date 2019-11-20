@@ -1,6 +1,8 @@
 package com.sda.auction.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -8,6 +10,7 @@ import java.util.Set;
 @Entity
 @Table(name = "role")
 @Data
+@NoArgsConstructor
 public class Role {
 
     @Id
@@ -18,5 +21,7 @@ public class Role {
     @Column
     private String roleName;
 
-
+    public Role(String roleName) {
+        this.roleName = roleName;
+    }
 }

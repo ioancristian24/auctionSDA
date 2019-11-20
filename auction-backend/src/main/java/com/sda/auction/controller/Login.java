@@ -1,5 +1,6 @@
 package com.sda.auction.controller;
 
+import com.sda.auction.dto.LoginDto;
 import com.sda.auction.dto.UserDto;
 import com.sda.auction.service.UserService;
 import com.sda.auction.validator.UserDtoValidator;
@@ -28,12 +29,9 @@ public class Login {
     }
 
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity<UserDto> post(@Valid @RequestBody UserDto userDto) {
+    public ResponseEntity<LoginDto> post(@Valid @RequestBody LoginDto loginDto) {
 
-        userDtoValidator.validate(userDto);
-
-        UserDto userDtoResult = userService.addUser(userDto);
-
-        return new ResponseEntity<>(userDtoResult, HttpStatus.OK);
+        LoginDto loginDtoResult = userService.login(loginDto);
+        return new ResponseEntity<>(loginDtoResult, HttpStatus.OK);
     }
 }
