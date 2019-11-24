@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.servlet.http.HttpServletResponse;
-
 @Data
 @AllArgsConstructor
 public class ErrorResponseDto {
@@ -19,6 +17,5 @@ public class ErrorResponseDto {
     public byte[] getBytes() throws JsonProcessingException {
         String serialized = new ObjectMapper().writeValueAsString(this);
         return serialized.getBytes();
-
     }
 }

@@ -16,8 +16,9 @@ public class UserMapper {
         return user;
     }
 
-    public  UserDto convert (User user){
-        UserDto userDto =  new UserDto();
+    public UserDto convert(User user) {
+
+        UserDto userDto = new UserDto();
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
         userDto.setFirstName(user.getFirstName());

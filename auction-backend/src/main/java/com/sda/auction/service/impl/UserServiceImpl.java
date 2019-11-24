@@ -16,23 +16,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
     private UserMapper userMapper;
+    private UserRepository userRepository;
     private BCryptPasswordEncoder passwordEncoder;
     private SecurityService securityService;
     private RoleRepository roleRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, BCryptPasswordEncoder passwordEncoder, SecurityService securityService, RoleRepository roleRepository) {
-        this.userRepository = userRepository;
+    public UserServiceImpl(UserMapper userMapper,
+                           UserRepository userRepository,
+                           BCryptPasswordEncoder passwordEncoder,
+                           SecurityService securityService, RoleRepository roleRepository) {
         this.userMapper = userMapper;
+        this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.securityService = securityService;
         this.roleRepository = roleRepository;
     }
 
+
     @Override
     public UserDto addUser(UserDto userDto) {
+
         //convertim dto in entity
         User user = userMapper.convert(userDto);
 
@@ -42,7 +47,7 @@ public class UserServiceImpl implements UserService {
         //persistam in baza de date
         User savedUser = userRepository.save(user);
 
-        //convertim entitatea persistata inapoi in dto pentru a o intoarce catre requester
+        //convertim entitatea persistata inapoi in dto pentru a o intoarce care requester
         return userMapper.convert(savedUser);
     }
 
@@ -62,19 +67,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public LoginDto login(LoginDto loginDto) {
         User user = userRepository.findByEmail(loginDto.getEmail());
-        if (user == null){
+        if (user == null) {
             throw new RuntimeException("User account with this email address not existent!");
         }
-        if (securityService.passwordMatch(loginDto, user)){
+        if (securityService.passwordMatch(loginDto, user)) {
             return securityService.createDtoWithJwt(user);
         }
-        throw new RuntimeException("Password do not match! ");
+        throw new RuntimeException("Passwords do not match!");
     }
 
     private void encodePassword(User user) {
-        //encode user's password and put it in passwordEncoded varioble
+        //encode user's password and put it in passwordEncoded variable
         String passwordEncoded = passwordEncoder.encode(user.getPassword());
-        //set the encoded password to the user entity
+        //set the encoded password to user entity
         user.setPassword(passwordEncoded);
     }
 }

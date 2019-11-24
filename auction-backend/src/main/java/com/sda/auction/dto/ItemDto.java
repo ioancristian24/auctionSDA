@@ -1,35 +1,39 @@
 package com.sda.auction.dto;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import org.hibernate.engine.internal.ImmutableEntityEntry;
-
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Data
 @EqualsAndHashCode
+@Data
 public class ItemDto {
 
     private Integer id;
 
-    @NotEmpty(message = "{error.item.name.notEmpty}")
-    @Pattern(regexp = "[A-Za-z ]+", message = "{error.item.name.pattern}")
+    @NotEmpty(message = "Please insert item's name")
+    @Pattern(regexp = "[A-Za-z ]+", message = "Letters and spaces only!")
     private String name;
 
-    @NotEmpty(message = "{error.item.description.notEmpty}")
+    @NotEmpty(message = "Please insert item's description")
     private String description;
 
     @Positive
     private int startingPrice;
 
-    @NotEmpty(message = "{error.item.category.notEmpty}")
+    @NotEmpty
     private String category;
 
-    @NotEmpty(message = "{error.item.startDate.notEmpty}")
+    @NotEmpty
     private String startDate;
 
-    @NotEmpty(message = "{error.item.endDate.notEmpty}")
+    @NotEmpty
     private String endDate;
+
+    @NotEmpty
+    private String photo;
+
 }

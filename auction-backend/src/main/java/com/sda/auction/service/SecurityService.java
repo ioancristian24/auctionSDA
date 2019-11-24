@@ -13,4 +13,5 @@ public interface SecurityService {
 
     boolean isValid(ServletRequest servletRequest);
 
+    void setEmailOn(ServletRequest servletRequest);
 }

@@ -20,63 +20,60 @@
 <body>
 
 <!--================Login Box Area =================-->
-<section class="login_box_area section-margin">
+<section class="addItem_box_area section-margin">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="login_box_img">
-                    <div class="hover">
-                        <h4>Already have an account?</h4>
-                        <p>There are advances being made in science and technology everyday, and a good example
-                            of this is the</p>
-                        <a class="button button-account" href="login.html">Login Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
+
+            <div class="col-lg-6 main-div">
                 <div class="login_form_inner register_form_inner">
-                    <h3>Create an account</h3>
-                    <form class="row login_form" action="#/" id="register_form">
+                    <h3>Add an item to auction</h3>
+                    <form class="row login_form" action="#/" id="addItem_form">
 
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="firstName" name="firstName"
-                                   placeholder="First name" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'First name'">
+                            <input type="text" class="form-control" id="name" name="name"
+                                   placeholder="Name" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Name'">
                         </div>
 
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="lastName" name="lastName"
-                                   placeholder="Last name" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Last name'">
+                            <input type="text" class="form-control" id="description" name="description"
+                                   placeholder="Description" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Description'">
                         </div>
 
 
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="email" name="email"
-                                   placeholder="Email Address" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Email Address'">
+                            <input type="text" class="form-control" id="category" name="category"
+                                   placeholder="Category" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Category'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="password" name="password"
-                                   placeholder="Password" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Password'">
+                            <input type="number" min="0" class="form-control" id="startingPrice" name="startingPrice"
+                                   placeholder="Starting price" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Starting price'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="confirmPassword" name="confirmPassword"
-                                   placeholder="Confirm Password" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Confirm Password'">
+                            <input type="date" class="form-control" id="startDate" name="startDate"
+                                   placeholder="Start date" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Start date'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Keep me logged in</label>
-                            </div>
+                            <input type="date" class="form-control" id="endDate" name="endDate"
+                                   placeholder="End date" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'End date'">
                         </div>
+
                         <div class="col-md-12 form-group">
-                            <button type="button" value="submit" class="button button-register w-100">Register
+                            <input type="file" class="form-control" id="photo" name="photo"
+                                   placeholder="Photo" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Photo'">
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <button type="button" value="submit" class="button button-register w-100">Add item
                             </button>
                         </div>
-                        <div class="col-md-12 form-group registerSuccessful">
+                        <div class="col-md-12 form-group addSuccessful">
 
                         </div>
                     </form>
@@ -97,6 +94,6 @@
 <script src="resources/vendors/mail-script.js"></script>
 <script src="resources/js/main.js"></script>
 
-<script src="resources/js/register.js"></script>
+<script src="resources/js/addItem.js"></script>
 </body>
 </html>
